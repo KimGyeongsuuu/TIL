@@ -10,3 +10,12 @@
   const krAge = calculateKrAge(age);
   console.log(kr.Age);
   ```
++ return을 하면 그 함수는 끝난다
+  ``` js
+  const calculator = {
+    plus: function(a,b){
+      console.log("hello");
+      return a+b;
+      console.log("bye bye");
+    }
+  }

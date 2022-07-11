@@ -8,7 +8,7 @@ document.getElementById("title");
 ```js
 const title - document.getElementsByTagName("h1");
 ```
-`innertext`는 titile명을 바꾸고 싶으면 아래와 같이 입력하면 된다.
+`innerText`는 titile명을 바꾸고 싶으면 아래와 같이 입력하면 된다.
 ```js
 title.innerText("바꿀내용");
 ```

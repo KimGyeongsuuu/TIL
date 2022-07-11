@@ -14,6 +14,8 @@ title.innerText("바꿀내용");
 ```
 querySelector란?
 + html의 클래스 이름 및 태그를 갖고 오기 위해서 사용한다
++ 첫번째 element만 가져온다
++ 모두 가져오고 싶다면 `querySelectorAll`으로 적는다
 
 index.html
 ```html

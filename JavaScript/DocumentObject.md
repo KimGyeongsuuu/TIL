@@ -1,6 +1,6 @@
 # HTML in Javascript
 `getElementById`는 id를 통해서 element를 찾아준다
-"title"이란 element를 찾아줄것이다
+"title"이란 아이디의 element를 찾아줄것이다
 ```js
 document.getElementById("title");
 ```

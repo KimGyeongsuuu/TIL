@@ -39,5 +39,9 @@ String.prototype.padStart(maxLength, ?fillString);
 + floor(x)
     + 입력받은 수 x를 내림한 수를 반환합니다.
 ### JS에서이미지 출력
-### creatElement
-### appendChild,prepend
++ `appendChild`는 문서에 있는 바디 끝에 붙입니다.
+```js
+const bgImage = document.createElement("img");
+bgImage.src = `img/${random}`;
+document.body.appendChild(bgImage);
+```

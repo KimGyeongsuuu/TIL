@@ -33,7 +33,7 @@ if(savedToDos !== null){
 + 자바스크립트에서 filter 는 배열에 사용하며, 주어진 함수를 만족하는 모든 요소를 모아 새 배열로 반환한다.
 + 배열.filter(함수) 함수의 반환값이 true이면 요소를 유지하고, false이면 새 배열에 유지되지 않는다.
 + 사용법 1
-```js
+```js   
 list.filter(function(word){
   return word.length >= 6 ;
 })

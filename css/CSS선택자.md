@@ -1,4 +1,4 @@
-# css
+# CSS선택자
 ### 구성요소
 + 선택자(selector) : 스타일을 적용할 대상 지정
 + 속성명(property) : 속성의 이름
@@ -46,7 +46,7 @@ p{
 + HTML에 모든 태그를 선택하는 전체 선택자
 ```css
 *{
-    color: gray;
+    color: gray; // color는 속성명, gray는 속성값
 }
 ```
 + 특정 id 태그를 선택하는 id선택자
@@ -70,4 +70,52 @@ p{
 + `:hover` : 마우스 커서를 올려놓는 순간
 
 ### 구조 선택자
-+ 
++ `E:nth-child(n)`n번째 순서인 E태그를 선택
+
+css
+```css
+p:nth-child(1){background-color: blue;}
+p:nth-child(2){background-color: blue;}
+p:nth-child(3){background-color: blue;}
+p:nth-child(4){background-color: blue;}
+p:nth-child(5){background-color: blue;}
+```
+html
+```html
+<body>
+    <p>Hello</p>
+    <p>Hello</p>
+    <p>Hello</p>
+    <p>Hello</p>
+    <p>Hello</p>
+</body>
+```
++ `E:first-child`는 같은 E태그에 첫번째 순서인 E태그를 선택
++ `E:last-child`는 같은 E태그에 마지막 순서인 E태그를 선택
+
+css
+```css
+p:first-child{color: red;}
+p:last-child{color: green;}
+```
+html
+```html
+<body>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+<body>
+```
+### 상태 선택자
++ `input:enabled` : 입력이 가능한 input태그를 선택
++ `input:disabled` : 입력할 수 없는 input태그를 선택
++ `input:focus` : focus가 된 input태그를 선택
+
+### 선택자 조합 방법
+|종류|설명|
+|-----|---|
+|A B|선택자 B가 포함된 선택자 A 선택|
+|A>B|선택자 A의 바로 직계 자손인 B 선택|
+|A+B|A 선택자 바로 다음의 B선택자 선택|
+|A~B|A 선택자 다음으로 가장 인접해있는 모든 선택자 B를 선택|
+|A,B|A 선택자와 B선택자를 모두 선택|

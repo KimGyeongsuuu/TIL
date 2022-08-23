@@ -68,3 +68,4 @@ title.addEventListerner("mouseleave",handmouseleave);
 // 타이틀밖에 커서가 있으면 handmouseleave이라는 함수가 실행이 된다.
 ```
 
+

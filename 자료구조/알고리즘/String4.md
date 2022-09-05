@@ -9,7 +9,7 @@ public class programing04 {
 		String url;
 		Scanner sc = new Scanner(System.in);
 		while(true) {	
-			System.out.print("URL을 입력하세요 : ");
+			System.out.print("URL을 입력하세요 : ");	
 			url = sc.next();
 			if(url.equalsIgnoreCase("bye"))
                 break;

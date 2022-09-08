@@ -21,8 +21,9 @@
 + [ArrayList](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/ArrayList.md)
 + [Collections Framework](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/Collections%20Framework.md)
 + [object](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/object.md)
-+ [배열]()
-+ [final]()
++ [배열](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/%EB%B0%B0%EC%97%B4.md)
++ [다차원배열](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/%EB%8B%A4%EC%B0%A8%EC%9B%90%EB%B0%B0%EC%97%B4.md)
++ [final](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/final.md)
 
 ## Front-end
 ### HTML

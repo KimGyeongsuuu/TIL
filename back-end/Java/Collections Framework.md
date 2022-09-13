@@ -50,3 +50,25 @@ for(int i=0; i<al.size(); i++){
 ![collections](https://hudi.blog/static/1bacac1babc556100455a8c64e7658da/e6c4b/2.png)
 
 검정색은 인터페이스, 파랑색은 클래스, 실선 화살표는 상속, 점선 화살표는 구현을 의미한다.
+
+### set
+Set은 한국어로 집합이라는 뜻이다. 여기서의 집합이란 수학의 집합과 같은 의미다. 수학에서의 집합도 순서가 없고 중복되지 않는 특성이 있다는 것이 기억날 것이다. (기억나지 않아도 상관없다) 수학에서 집합은 교집합(intersect), 차집합(difference), 합집합(union)과 같은 연산을 할 수 있었다. Set도 마찬가지다.
+
+### 부분집합 (subset)
+```java
+System.out.println(A.containsAll(B)); // false
+System.out.println(A.containsAll(C)); // true
+```
+![set](https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/2155.png)
+
+### 합집합
+```java
+A.addAll(B);
+```
+![set](https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/2156.png)
+
+### 차집합
+```java
+A.removeAll(B);
+```
+![set](https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/2158.png)

@@ -46,7 +46,6 @@ for(int i=0; i<al.size(); i++){
 + 맵 (Map) : Key-value 쌍으로 데이터를 저장한다. 순서가 존재하지 않으며, Key 가 중복될 수 없다.
 
 ### Collections Framework 계층
-
 ![collections](https://hudi.blog/static/1bacac1babc556100455a8c64e7658da/e6c4b/2.png)
 
 검정색은 인터페이스, 파랑색은 클래스, 실선 화살표는 상속, 점선 화살표는 구현을 의미한다.

@@ -36,7 +36,11 @@
 + [데몬 쓰레드](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/%EB%8D%B0%EB%AA%AC%EC%93%B0%EB%A0%88%EB%93%9C.md)
 + [람다](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/%EB%9E%8C%EB%8B%A4.md)
 + [map](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/map.md)
-
++ [GUI](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/GUI.md)
++ [date](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/date.md)
++ [Static](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/static.md)
++ [Stack](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/Stack.md)
++ [Queue](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/queue.md)
 ### Spring
 + [Spring](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Spring/Spring.md)
 ## Front-end
@@ -69,7 +73,7 @@
 + [branch](https://github.com/KimGyeongsuuu/TIL/blob/main/Github/branch.md)
 + [FullReqeust](https://github.com/KimGyeongsuuu/TIL/blob/main/Github/FullRequest.md)
 + [git](https://github.com/KimGyeongsuuu/TIL/blob/main/Github/github.md)
-+ [Git-flow](https://github.com/KimGyeongsuuu/TIL/blob/main/Github/gitflow.md)
++ [Git-flow](https://github.com/KimGyeongsuuu/TIL/blob/main/Github/gitflow.mdx)
 
 ## 인터넷
 + [인터넷](https://github.com/KimGyeongsuuu/TIL/blob/main/Internet/internet.md)

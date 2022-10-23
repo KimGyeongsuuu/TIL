@@ -12,11 +12,38 @@ public class Student(){
 
 즉, 패키지 스캔 안에 이 어노테이션은 "이 클래스를 정의했으니 빈으로 등록하라" 는 뜻이 된다.
 
-+ `Component`를 포함하는 다음 어노테이션도 스프링 빈으로 자동 등록된다.
++ `Component`를 포함하는 다음 어노테이션도 스프링 빈으로 **자동** 등록된다.
     + `@Controller`
     + `@Service`
     + `@Repository`
 
+
+### 등록 방법
+1. application.xml 파일에 Bean을 직접 등록하는 것은 고전적인 방법이다.
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+    // Bean을 등록하는 과정
+    <bean id="bookService" class="com.ex.forblog.book.BookService">
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+	
+    // Bean을 의존성 주입(DI)하는 과정
+    <bean id="bookRepository" class="com.ex.forblog.book.BookRepository"/>
+</beans>
+```
+
+2. 최근에는 어노테이션으로 Bean을 등록한다.<br>
++ @Component, @Service, @Controller, @RestController, @Repository, @Bean, @Configuration 등 필요한 Bean을 등록할 수 있다. <br>
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbnbmLr%2Fbtq103g3rff%2FCJAOohdIWiBXVq28cU4Jyk%2Fimg.png)
+
+
+ @Service, @Controller, @Repository어노테이션은 @Component어노테이션보다 조금 더 구체적인 어노테이션이다.
+ 
 
 `Component`를 아무때나 사용할 수 있는 것도 아니다.
 `@SpringBootApplication`어노테이션은 스프링의 가장 기본적인 설정을 해줍니다.
@@ -76,6 +103,9 @@ public class MemberController {
 
 ```
 위와 같이 `@Bean`어노테이션에 `name`이라는 값을 이용하면 자신이 원하는 id로 `Bean`을 조정할 수 있다.
+
++ 위에 코드에서 생성자 위에 `@Autowired`라는 어노테이션이 있는데, 이 어노테이션을 사용하면 스프링이 관련된 객체를 스프링 컨테이너에서 찾아서 넣어준다.<br>
+이렇게 의존성이 있는 객체를 넣어주는것을 의존성 주입(DI)라고 한다.
 
 # 의존관계
 + 스프링 어노테이션을 사용한 컴포넌트 설정

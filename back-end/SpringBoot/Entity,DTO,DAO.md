@@ -23,6 +23,41 @@
 + Entity와 DTO는 다른 것으로 View와 DB분리가 확실하게 이루어져야 한다.
 
 
+Entity에서는 setter메소드를 지양해야한다. 그 이유는 setter를 사용하면 변경하지 않을 인스턴스도 setter로 접근이 가능하기 때문에 불필요한 인스턴스에 접근 가능하여 변경될수도 있다는 것 입니다.
+setter 메소드가 있다는 것은 불변하지 않는다는 의미입니다. 
+그러니 안전성을 보장하지 못합니다.
+그래서 Entity에서는 setter메소드 대신에 builder 또는 생성자를 사용합니다.
+<br>
+<br>
+Entity에서 생성자를 사용하여 초기화하여 불변객체로 만들면 데이터를 이동하는 과정에서 데이터가 변조될수도 있습니다. 하지만 Builder를 사용하면 멤버수가 많아도 어떤 값을 필드에 넣는지 코드를 통해 확인할수 있습니다.
+
+```java
+@Builder
+@Getter
+@Entity
+@NoArgsConstructor
+public class Membmer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idx;
+    private String name;
+    private String email;
+ 
+    public Member(Long idx, String name, String email) {
+        this.idx = idx;
+        this.name = name;
+        this.email = email;
+    }
+}
+
+// 사용 방법
+Member member = Member.builder()
+        .name("Jan")
+        .email("Jan@Jan.com")
+        .build();
+```
+
+
 ### 패키지의 전체 구조
 ![Entity](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBeEFMTQd7elP06MfiSFnOQBY4X9pZXkQq0Q&usqp=CAU)
 
@@ -92,3 +127,9 @@
     #### Repository(DAO)
     + 실제로 DB에 접근하는 객체
     + Service와 DB를 연결한다.
+
+
+    ### 프로퍼티   
+    자바에서는 고유한 특징이 있는데, 프로퍼티라고 합니다.<br>
+    프로퍼티는 메소드와 필드 사이의 개념 입니다.<br>
+    프로퍼티의 읽기와 쓰기는 보통 getter,setter로 이루어지며 이 값을 담는 곳이 필드 입니다.

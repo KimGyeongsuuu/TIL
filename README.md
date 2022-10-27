@@ -41,8 +41,13 @@
 + [Static](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/static.md)
 + [Stack](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/Stack.md)
 + [Queue](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Java/queue.md)
-### Spring
-+ [Spring](https://github.com/KimGyeongsuuu/TIL/blob/main/back-end/Spring/Spring.md)
+
+### SpringBoot
+
++ [MVC](./back-end/SpringBoot/MVC.md)
++ [JPA](./back-end/SpringBoot/JPA.md)
++ [JSON](./back-end/SpringBoot/Json.md)
+
 ## Front-end
 ### HTML
 + [개요](https://github.com/KimGyeongsuuu/TIL/blob/main/front-end/HTML/%EA%B0%9C%EC%9A%94.md)

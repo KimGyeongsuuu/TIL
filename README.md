@@ -47,6 +47,13 @@
 + [MVC](./back-end/SpringBoot/MVC.md)
 + [JPA](./back-end/SpringBoot/JPA.md)
 + [JSON](./back-end/SpringBoot/Json.md)
++ [IOC](./back-end/SpringBoot/IOC%EC%BB%A8%EB%B2%A0%EC%9D%B4%EB%84%88.md)
++ [GETPOST](./back-end/SpringBoot/GETPOST.md)
++ [crud](./back-end/SpringBoot/crud.md)
++ [경로](./back-end/SpringBoot/%EA%B2%BD%EB%A1%9C.md)
++ [entity](./back-end/SpringBoot/Entity%2CDTO%2CDAO.md)
++ [controller](./back-end/SpringBoot/controller.md)
++ [container](./back-end/SpringBoot/container.md)
 
 ## Front-end
 ### HTML

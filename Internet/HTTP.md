@@ -11,6 +11,7 @@
 + HTTP 메시지는 **HTTP서버**와 **HTTP클라이언트**에 의해 해석이 된다.
     + 이렇게 서버와 클라이언트가 분리된 네트워크 환경에서,  
     클라이언트는 서버로 요청 **Request**을 전송하고, 서버는 요청에 대한 응답 **Response**을 함으로써 통신하게 되는 것입니다.
+
     ![http](https://postfiles.pstatic.net/MjAyMTA0MDdfMTE4/MDAxNjE3NzgxMDA2MTE1.ZuJZfgIFE5wa37-7TzgzUW5AF5Q8bxmuYotnDRnIfHcg.mQtDEHb9Pr98nuOB5ROIlOtWb80O10pA708TeYonp1Mg.PNG.aservmz/image.png?type=w966)
 + HTTP는 연결 상태를 유지하지 않는 비연결성 프로토콜이다.
 + HTTP는 비연결성 프로토콜이기 때문에 요청/응답 방식으로 동작한다.
@@ -72,3 +73,15 @@ Content-Type: text/html;
 + 두 번째 줄부터는 헤더로 응답에 대한 정보를 담고 있다.
 3. 본문 (헤더 뒤부터)
 + 응답 메시지에는 요청한 데이터를 담아서 보내주기 때문이다. 응답 메시지에 HTML이 담겨 있는데 이 HTML을 받아 브라우저가 화면에 렌더링한다.
+
+# HTTP HTTPS차이
+HTTPS는 SSL인증서를 사용하는 HTTP입니다. SSL인증서는 일반적인 요청을 암호화해서 합니다.
+HTTPS는 보안용 프로토콜입니다.
+
+### HTTP
+HTTP는 간단하게 말해서 인터넷을 작동시키게 만드는 프로토콜입니다.<br>
+웹 서버 및 브라우저 간의 데이터를 전송하는 응용계층 프로토콜 입니다.
+
+### HTTPS
+HTTPS는 HTTP와 같은 방식으로 작동하는 프로토콜입니다.<br>
+그러나 데이터를 전송할 때 암호화를 하여 전송합니다. 그러므로 데이터를 훔치거나, 해킹하지 못하도록 데이터를 전송합니다.

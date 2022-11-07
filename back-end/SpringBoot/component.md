@@ -80,6 +80,14 @@ public @interface SpringBootApplication {
 ```
 여기서 `@ComponentScan`은 `@Component`어노테이션 및 `@Controller`, `@Service`, `@Repository`등의 어노테이션을 스캔하여 Bean에 등록합니다.
 
+### ComponentScan
+`@ComponentScan` 은 `@Component` 가 붙은 모든 클래스를 스프링 빈으로 등록한다.
+
+이때 스프링 빈의 기본 이름은 클래스명을 사용하되 맨 앞글자만 소문자를 사용한다.<br>
++ 빈 이름 기본 : MemberServiceImpl 클래스의 빈이라면 자동으로 memberServiceImpl로 빈 이름이 지정된다.<br>
++ 빈 이름 직접 지정: 만약에 스프링 빈의 이름을 지정하고 싶다면 `@Component("spring")`
+이런 식으로 지정하면 된다.
+
 # Bean
 개발자가 작성한 Method를 반환하는 객체를 Bean으로 만드는 것이다.
 `@Configuration` 어노테이션이 들어간 Spring을 설정하는 클래스 내에 들어가는 메소드에서 선언한다.

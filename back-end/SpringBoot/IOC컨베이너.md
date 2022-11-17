@@ -9,7 +9,7 @@
 ### 분류
 + DL(Dependency Lookup)
     +  저장소에 저장되어 있는 Bean에 접근하기 위해 컨테이너가 제공하는 API를 이용하여 Bean을 Lockup하는 것
-+ DI(Dependency Injection)
++ DI(Dependency Injection) : DI란 외부에서 객체를 생성하여 클라이언트로 전달하여 의존 관계를 연결시키는 것
     + 각 클래스에 Bean정보를 바탕으로 컨베이너가 자동으로 연결시켜주는 것
         + 생성자 
         + 필드

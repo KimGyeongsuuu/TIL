@@ -27,7 +27,18 @@ accessToken의 유효시간이 다하면 그때 refreshToken을 활용해서 acc
 + 안전하다
 + 권한부여하기에 편리하다
 
+### JWT를 이용한 인증 과정
 
+![JWT](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FddMTy5%2Fbtq4X5CPaYg%2FVUNZoHe45R0kj33ntKG1r0%2Fimg.png)
+
+1. 사용자가 로그인을 하면 회원DB에서 사용자 확인을 한다.
+2. 사용자 확인이 되면 AccessToken과 RefreshToken을 발급한다.
+3. 클라이언트가 요청을 할 때 헤더에 AccessToken과 함께 데이터를 요청한다.
+4. 서버에서 AccessToken을 검증하고 일치하면 요청 데이터를 응답한다.
+5. AccessToken이 만료가 되면 서버에서 AccessToken 만료 신호를 클라이언트로 보낸다.
+6. 클라이언트가 AccessToken 재발급요청을 서버로 요청한다.
+7. AccessToken에 해당하는 RefreshToken을 확인하고 새로운 AccessToken을 발급한다.
+8. 클라이언트는 새로운 AccessToken으로 데이터를 요청한다.
 
 
 

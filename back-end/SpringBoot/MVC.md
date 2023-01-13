@@ -43,3 +43,23 @@ Spring MVC는 Spring에서 제공하는 웹 모듈로, **Model**, **View**, **Co
 + Model : 백그라운드에서 동작하는 로직을 처리
 + View : 정보를 화면에 나타나게 하는 역할
 + Controller : 화면과 Model과 View를 연결해주는 역할
+
+
+### 흐름
+![flow](https://blog.kakaocdn.net/dn/Or4T1/btqFcNAEiAD/VLPsPQcUnUC8iWw8suH3Ek/img.png)
+
+DispatcherServlet : 클라이언트에게 요청을 받아 응답까지의 MVC 처리과정을 통제한다.
+
+HandlerMapping : 클라이언트의 요청 URL을 어떤 Controller가 처리할지 결정한다.
+
+HandlerAdapter : HandlerMapping에서 결정된 핸들러 정보로 해당 메소드를 직접 호출해주는 역할을 한다.
+
+ViewResolver : Controller의 처리 결과(데이터)를 생성할 view를 결정한다.
+
+1. 클라이언트가 URL을 통해서 요청을 전달한다.
+2. 디스패처 서블릿이 핸들러 매핑을 통해 어느 Controller에게서 온 요청인지 확인한다.
+3. 디스패처 서블릿이 핸들러 어뎁터를 통해 Controller에게 요청을 전달한다.
+4. Controller는 비즈니스 로직을 처리하고 화면에 보여질 뷰를 반환한다.
+5. 디스패처 서블릿이 뷰리졸버를 통해 반환할 뷰를 찾는다.
+6. 디스패처 서블릿은 Controller에서 뷰에 전달할 데이터를 추가한다.
+7. 데이터가 추가된 뷰가 반환된다.

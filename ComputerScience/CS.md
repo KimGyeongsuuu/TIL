@@ -154,7 +154,7 @@ SSL암호화를 사용해서 데이터 변조를 막습니다.
 ### OSI 참조모델
 통신할 때 어떻게 메세지를 주고 받고 어떤 언어를 사용할 지 정하는 규칙, 이러한 규칙을 프로토콜이라고 한다.
 
-![OSI](OSI.png)
+![OSI](/ComputerScience/img/OSI.png)
 
 **물리계층**
 + 데이터를 주고받는 기능을 수행
@@ -353,3 +353,24 @@ SSR : Server Side Rendering
 ### Redis
 Redis는 key-value store NOSQL DB입니다. 싱글스레드로 동작하며 자료구조를 지원합니다.<br>
 스프링에서는 세션을 관리하거나, 캐싱을 하는데에 자주 사용합니다.
+
+
+### Call By Value와 Call By Reference
+#### Call By Value(값에 의한 호출) : 인자로 받은 값을 복사하여 처리하는 방법
++ 장점 : 값을 복사하여 사용하기 때문에 원래의 값이 보존된다.
++ 단점 : 값을 계속 복사하여 사용하니 메모리 사용량이 증가한다.
+
+#### Call By Refreence(참조에 의한 호출) : 인자로 받은 주소를 참조하여 직접 저장해 값에 영향을 주는 방식입니다.
++ 장점 : 복사하지 않고 직접 참조하기 빠르다
++ 단점 : 복사를 하지 않아서 원래 값이 영향을 받는다.
+
+### CORS
+CORS란 도메인이 서로다른 2개의 사이트가 데이터를 교환할 때 발생하는 문제입니다.<br>
+예를 들어, domain-a.com **<->** domain-b.com으로 데이터를 주고 받을때 따로 설정을 해놓지 않으면 CORS문제가 발생한다.
+
+따라서 다른 브라우저의 리소스를 가져오려면, 그 출처에서 CORS에 대한 내용을 Response헤더에 추가해야한다.
+
++ Access-Control-Allow-Orgin : 요청을 보내는 페이지의 출처 [ *, 도메인 ] 
++ Access-Control-Allow-Methods : 요청을 허용하는 메소드. Default : GET, POST
++ Access-Control-Max-Age : 클라이언트에서 preflight 요청 (서버의 응답 가능여부에 대한 확인) 결과를 저장할 시간
++ Access-Control-Allow-Headers : 요청을 허용하는 헤더

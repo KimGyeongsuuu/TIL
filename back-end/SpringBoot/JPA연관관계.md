@@ -35,4 +35,49 @@ DB에서는 외래키로 두개의 테이블이 연관관계를 맺습니다.
 
 외래키를 관리하는 주인만 외래 키를 변경시킬 수 있으며, 주인이 아닌 객체는 읽는것만 가능합니다.
 
+연관관계의 주인이 아닌 객체에서 `mappedBy`를 사용해서 주인을 지정해 줍니다.
+
+`TIP : 외래 키가 있는 곳을 연관 관계의 주인으로 정하면 됩니다. 무조건!!!!`
+
+
+
+### 다대일[N : 1] - @ManyToOne
+`게시판(board)`과 `게시글(post)`의 관계를 예로 들겠습니다.
+
++ 요구사항
+    + 하나의 게시판(1)에 여러글(N)을 작성할 수 있다.
+    + 하나의 게시글은 하나의 게시판에만 작성 가능하다.
+
+```java
+@Entity
+public class Post{
+    @Id
+    @GeneratedValue
+    @Colume(name = "POST_ID")
+    private Long id;
+
+    @Colume(name = "TITLE")
+    private String title;
+
+    @ManyToOne
+    @JoinColumn(name = "BOARD_ID")
+    private Board board;
+}
+
+@Entity
+public class Board{
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String title;
+}
+```
+
+다대일 단방향에서는 `다`쪽인 Post에서 `@ManyToOne`만 추가하면 됩니다.<br>
+단방향이기에 Board에는 아무것도 참조하지 않습니다.
+
+
+
+
+
 

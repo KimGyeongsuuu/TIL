@@ -48,6 +48,8 @@ DB에서는 외래키로 두개의 테이블이 연관관계를 맺습니다.
     + 하나의 게시판(1)에 여러글(N)을 작성할 수 있다.
     + 하나의 게시글은 하나의 게시판에만 작성 가능하다.
 
+
+**단방향**
 ```java
 @Entity
 public class Post{
@@ -76,8 +78,118 @@ public class Board{
 다대일 단방향에서는 `다`쪽인 Post에서 `@ManyToOne`만 추가하면 됩니다.<br>
 단방향이기에 Board에는 아무것도 참조하지 않습니다.
 
+**양방향**
+```java
+@Entity
+public class Post{
+    @Id
+    @GeneratedValue
+    @Colume(name = "POST_ID")
+    private Long id;
+
+    @Colume(name = "TITLE")
+    private String title;
+
+    @ManyToOne
+    @JoinColumn(name = "BOARD_ID")
+    private Board board;
+}
+
+@Entity
+public class Board{
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String title;
+
+    @OneToMany(mappedby = "board")
+    List<Post> posts = new ArrayList();
+}
+```
+다대일에서 양방향을 사용하려면 `다대일`에서 `일`쪽에 `@OneToMany`어노테이션을 추가해주고 `@maapedBy`로 연관관계의 주인을 정해줍니다.
+
+### 일대다[1 : N] - @OneToMany
+일대다는 다대일과 거의 비슷하지만 `다대일`에서의 연관관계의 주인은 `다`쪽이 었지만 `일대다`의 주인은 `일`쪽이라는 차이점이 있다.
+
+**단방향**<br>
+데이터베이스에서는 무조건 N(다)쪽에서 외래키를 관리합니다.<br>
+그렇지만 `일`쪽에서 `다`를 생성,수정,삭제하는 방법이 있다.
+
+```java
+@Entity
+public class Post {
+    @Id @GeneratedValue
+    @Column(name = "POST_ID")
+    private Long id;
+
+    @Column(name = "TITLE")
+    private String title;
+}
+
+@Entity
+public class Board {
+    @Id @GeneratedValue
+    private Long id;
+    private String title;
+
+    @OneToMany
+    @JoinColumn(name = "POST_ID") //일대다 단방향을 @JoinColumn필수
+    List<Post> posts = new ArrayList<>();
+}
+```
+일대다의 단방향의 경우 `@OneToMany`에 `mappedBy`를 사용할 필요가 없습니다.
+대신 `@JoinColumn`을 이용해서 조인을 합니다.
 
 
+**양방향**<br>
+`일대다` 양방향은 공식적으로 존재하는 것이 아니여서 생략하겠습니다.<br>
+`일대다` 양방향을 사용해야할 때는 `다대일` 양방향 사용하도록 하는게 더 좋습니다.
 
+### 일대일[1 : 1] - @OneToOne
+주 테이블에 외래키를 넣을 수도 있고, 대상 테이블에 외래키를 넣을 수도 있습니다.<br>
+**일대일**이기 때문에 A,B테이블이 있을때, A테이블이 주 테이블이면 B테이블이 대상테이블이고, B테이블이 주 테이블이면 B테이블이 대상테이블입니다.
 
+**단방향**
+```JAVA
+@Entity
+public class Post {
+    @Id @GeneratedValue
+    @Column(name = "POST_ID")
+    private Long id;
 
+    @Column(name = "TITLE")
+    private String title;
+
+    @OneToOne
+    @JoinColumn(name = "ATTACH_ID")
+    private Attach attach;
+}
+@Entity
+public class Attach {
+    @Id @GeneratedValue
+    @Column(name = "ATTACH_ID")
+    private Long id;
+    private String name;
+}
+```
+일대일 단방향도 거의 지원하지 않습니다.
+
+**양방향**
+
+양방향도 다를게 없다. 기존 단방향코드에 `@OneToOne`을 설정하고 `mappedBy`를 통해 읽기 전용으로 만들어주면 됩니다.
+```java
+@Entity
+public class Attach {
+    @Id @GeneratedValue
+    @Column(name = "ATTACH_ID")
+    private Long id;
+    private String name;
+
+    @OneToOne(mappedBy = "attach")  
+    private Post post;
+  //... getter, setter
+}
+```
+
+### 다대다[N : N] - ManyToMany
++ 실무사용 금지

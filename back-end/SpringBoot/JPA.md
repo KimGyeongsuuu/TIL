@@ -36,3 +36,19 @@ JPA는 애플리케이션과 JDBC사이에서 동작합니다.<br>
 + 유지보수의 유의하다.
 ### 단점
 + 프로젝트의 규모가 크고 복잡하여 설계과정에서 문제가 발생하여 원하지 않은 Query문이 자동생성되어서 성능이 저하될 수 있다.
+
+
+
+### ddl-auto 옵션 종류
++ create : 기존테이블 삭제 후 다시 생성(DROP + CREATE)
++ create-drop : create와 같지만 종료시점에 테이블을 drop을 한다
++ update : 변경된 부분만 적용
++ validate : 엔티티와 테이블이 정상 매팽되는지 확인
++ none : 사용하지 않겠다
+
+**주의**
++ 운영장비에서는 `create`, `create-drop`, `update`는 사용하면 안된다.
++ 개발 초기에는 `create`, `update`를 사용한다.
++ 테스트 단계에서는 `update`, `validate`를 사용한다.
++ 운영 단계에서는 `validate`, `none`을 사용한다.
+

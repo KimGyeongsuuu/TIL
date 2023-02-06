@@ -73,3 +73,129 @@
 + 노드의 차수(degree) : 자식 노드의 `개수`. 위에 그림에서 B의 차수는 `2개`이다.
 
 + 트리의 차수(degree of tree) : 트리의 최대 차수
+
+
+## 트리의 종류
+### 이진트리(Binary Tree)
+이진트리는 각 노드가 자식이 없거나 2개이상 있는 트리를 말한다.
+
+![tree](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbUHUvy%2Fbtq9LrgvaEk%2F25BNRf1t3inHC7uijWfepk%2Fimg.png)
+
+### 완전 이진트리, 전 이진 트리, 포화 이진 트리
+**완전 이진 트리**
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb7BofG%2Fbtq9Eilu1J5%2F0HNO2KiWkBxTvERSJGHla0%2Fimg.png)
+
++ 완전이진트리는 트리의 마지막 레벨을 제외하고는 완전히 채워져야 한다.
++ 마지막 레벨에서는 왼쪽부터 채워져야 한다. 
++ 완전이진트리는 배열로 표현가능하다.
+
+**전 이진 트리**
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdSwyWw%2Fbtq9KmfrOlf%2F37ctrWKZKRSQJEZA7C9UMK%2Fimg.png)
+
++ 전이진트리는 모든 노드가 0개 또는 2개의 자식을 가지는 트리를 말한다.
+
+
+**포화 이진 트리**
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdfWC2R%2Fbtq9LqomTS7%2Frt4Io0pCfqBCckCs92CNz0%2Fimg.png)
+
++ 포화이진트리는 모든 레벨의 노드가 가득 채워져 있는 트리를 말한다.
++ 전이진트리의 특징인 노드가 0개 이거나 2개의 자식을 가졌다.
+
+<hr>
+
+### 이진 탐색 트리
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcycePn%2Fbtq9IZY6CZx%2FT5jBed5A535HHx1GwnJLWk%2Fimg.png)
+
+```
+1. 각 노드에 중복되지 않은 키가 있다
+2. 루트 노드를 기준으로 왼쪽에는 루트노드보다 작은 수, 오르쪽에는 큰 수 가 위치한다.
+3. 좌우 서브 트리도 모두 이진 탐색 트리여야 한다.
+```
+
+#### 특징
+이진 트리 탐색은 기존의 이진트리보다 탐색이 빠르다. 이진탐색트리의 탐색 연산은 트리의 높이가 `h`라면 `O(h)`의 시간 복잡도를 가진다.
+
+### 이진 탐색 트리 탐색(Search)
+다음과 같은 과정을 거친다.
+
+```
+1. 루트노드와 자신이 찾고자 하는 값을 비교한다. 자신이 찾는 값이 루트노드이면 탐색을 종료한다.
+2. 자신이 찾는 값이 루트노드보다 작으면 왼쪽서브트리로 탐색을 한다.
+3. 자신이 찾는 값이 루트노드보다 크면 오른쪽서브트리로 탐색을 한다.
+```
+
+위의 과정을 값을 찾을때까지 반복한다.
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpEBxn%2Fbtq9ReoXZUX%2F7zobmK5yQPPupKqGRgdHcK%2Fimg.png)
+
+**위와같은 트리에서 5를 찾는 과정**
+```
+1. 5와 루트노드인 7을 비교한다. 5가 7보다 작으니 왼쪽서브트리로 이동한다.
+2. 왼쪽서브트리인 3과 5를 비교한다. 5가 더 크니 오른쪽서브트리로 이동한다.
+3. 키가 5인 노드를 찾았음으로 탐색을 종료한다.
+```
+
+### 이진 탐색 트리 삽입(Insert)
+다음과 같은 과정을 거친다.
+
+```
+1. 삽입할 값이 루트노드와 비교해 같다면 오류가 발생한다.(중복 허용X)
+2. 삽입할 값이 루트노드보다 작다면 왼쪽서브트리를 탐색하여 비었다면 값을 추가하고 값이 비어있지 않다면 다시 비교한다.
+3. 삽입할 값이 루트노드보다 크다면 오른쪽서브트리를 탐색하여 비었다면 값을 추가하고 값이 비어있지 않다면 다시 비교한다.
+```
+
+다음 트리에 6을 삽입한다고 가정하자
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczCET0%2Fbtq9Ov57XGz%2F7HO8dK5PcnF24WwHYwjOOK%2Fimg.png)
+
+```
+1. 6이 7보다 작으니 왼쪽서브트리로 탐색을 한다.
+2. 6이 3보다 크니 오른쪽서브트리로 탐색을 한다.
+3. 6이 5보다 크니 오른쪽서브트리로 탐색을 한다.
+3. 값이 비었으니 5의 오른쪽서브트리 위치에 6을 삽입한다.
+```
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdpBA2w%2Fbtq9RdRgKoI%2Flf9C3qqbPZtLCFYNSnJGXk%2Fimg.png)
+
+6을 삽입하면 위의 그림과 같이 트리가 완성이 된다.
+
+### 이진 탐색 트리의 삭제(delete)
+삭제는 탐색과 삽입에 비해 조금 더 복잡하다. 삭제할 경우 3가지의 상황을 나누어서 구현해야한다.
+```
+1. 삭제하려는 노드가 단말노드인 경우
+2. 삭제하려는 노드의 서브 트리가 하나인 경우(왼쪽 혹은 오른쪽 서브 트리)
+3. 삭제하려는 노드의 서브 트리가 두 개인 경우
+```
+
+
+#### 삭제하려는 노드가 단말노드인 경우
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHjtkT%2Fbtq92w3hhp7%2Fpfi0hfaay4sj9MFMRU5rM0%2Fimg.png)
+
+삭제하려는 노드가 단말노드(자식이 없다)인 경우에 삭제는 간단하다.
+
+#### 삭제하려는 노드의 서브 트리가 하나인 경우(왼쪽 혹은 오른쪽 서브 트리)
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2iif8%2Fbtq9Y5ZSC52%2FH5CewcVD4MvdsLBxI9QPm1%2Fimg.png)
+
+이것도 간단하다. 8을 지우고 자식인 10을 부모자리에 위치시키면 된다.
+
+
+#### 삭제하려는 노드의 서브트리가 두 개인 경우
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FFa6xf%2Fbtq91pDx9u5%2FOiTC9pKYBxmjasKKTtzuK0%2Fimg.png)
+
+이거는 조금 복잡하다. 두 가지 방법이 있다.
+
+1) 삭제할 노드의 왼쪽서브트리에서 가장 큰 값을 해당 노드자리에 위치시킨다.
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbcTUrX%2Fbtq92Q1tw0m%2FtyYJcuLUtWj7kD5k3qAeMK%2Fimg.png)
+
+2) 삭제할 노드의 오른쪽서브트리에서 가장 작은 값을 해당 노드자리에 위치시킨다.
+
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbI3IEY%2Fbtq9Rc54r92%2FnDvEWCXdq9qVmYaYiHKAAK%2Fimg.png)
+
+
+
+

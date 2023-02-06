@@ -195,7 +195,16 @@
 2) 삭제할 노드의 오른쪽서브트리에서 가장 작은 값을 해당 노드자리에 위치시킨다.
 
 ![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbI3IEY%2Fbtq9Rc54r92%2FnDvEWCXdq9qVmYaYiHKAAK%2Fimg.png)
+<hr>
 
 
+### Heap(힙)
+최댓값 및 최솟값을 찾아내는 연산을 빠르게 하기 위해 고안된 완전 이진 트리를 기본으로 한 자료구조
 
+힙에는 두가지 종류가 있다.
+```
+1. 부모노드의 키값이 자식노드보다 항상 큰 힙
+2. 부모노드의 키값이 자식노드보다 항상 작은 힙
+```
 
+![img](https://velog.velcdn.com/images%2Fbye9%2Fpost%2F08c26c9b-6150-4ffd-96f8-ead915a9b783%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-03-18%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.17.57.png)

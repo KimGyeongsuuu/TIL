@@ -302,3 +302,138 @@ fun main(){
 }
 // 결과 : Hello. My name is kim
 ```
+
+### 스코프 함수
+```kotlin
+fun main(){
+
+}
+class Book(var name:String, var price:Int){
+    fun discount(){
+        price-=2000
+    }
+}
+```
+### 1. apply
+위와 같이 Book이라는 클래스가 있다고 가정하자.<br>
+Book클래스에는 name과 price를 프로퍼티로 갖게 된다. 그리고 discount()라는 함수를 가지고 있다
+```kotlin
+fun main(){
+    var a = Book("해로의 모험" , 10000).apply{
+        name="초특가"+name
+        discount()
+    }
+    println("상품명 : ${a.name}, 가격 : ${a.price}")
+
+}
+class Book(var name:String, var price:Int){
+    fun discount(){
+        price-=2000
+    }
+}
+// 결과 : [초특가]해로의 모험, 가격 8000
+```
+다시 말해, `apply`함수는 인스턴스를 새로 생성하고 특정 변수값을 할당시키기 전에 초기화 작업을 해줄 수 있는 스코프 함수를 만들어준다.
+
+apply함수 내의 모든 명령이 수행되고 나면 새로운 명령에 값들이 적용된 인스턴스가 생성된다.
+
+### run
+run과 apply는 비슷해 보이지만 차이점이 있다.<br>
+apply는 반환하는 값이 인스턴스 이지만, run은 반환하는것이 결과값이다.<br>
+이미 만들어진 인스턴스를 계산해서 출력해야하는 상황에는 run 활용할 수 있다.
+```kotlin
+fun main(){
+     var a = Book("해로의 모험" , 10000).apply{
+        name="초특가"+name
+        discount()
+    }
+    var bookCast = a.run{
+        println("상품명 : ${name}, 가격 : ${price}")
+        price+2000
+    }
+    println("원가는 $bookCast 입니다")
+}
+class Book(var name:String, var price:Int){
+    fun discount(){
+        price-=2000
+    }
+}
+// 결과 : 상품명 : 해로의 모험, 가격 : 8000
+//        원가 : 10000
+```
+run의 스코프 마지막 줄에 `price+2000`의 결과값을 반환해주는 것이다.
+
+run은 특정 인스턴스의 프로퍼티를 출력하거나 계산결과를 출력해야하는 상황에 사용된다.
+
+
+### with
+with와 run은 사실 같은 기능이다. 생긴것만 다를 뿐 기능적인 차이점은 없다.
+```kotlin
+var bookCast = a.run{
+    println("상품명 : ${name}, 가격 : ${price}")
+    price+2000
+}
+var bookCast2 = with(a){
+    println("상품명 : ${name}, 가격 : ${price}")
+    price+2000
+}
+```
+
+### also / let
+also와 let은 위에서 설명한 함수들과 동작이 아래와 일치하다
++ 생성된 인스턴스를 반환 : apply , also
++ 최종 실행 결과를 반환 : run , let
+
+also/let 과 apply/run의 차이점은 조금 다른 특징을 가지고 있다.<br>
+바로 `it` 키워드르 사용할 수 있다는 것이다!!
+
+```kotlin
+fun main(){
+    var price = 99999
+
+    var a = Book("해로의 모험",10000).apply{
+        name = "[폭탄세일중]" + name
+        discount()
+    }
+    a.run{
+        println("상품명 : ${name}, 가격 : ${price}")
+    }
+    
+}
+class Book(var name:String, var price:Int){
+    fun discount(){
+        price-=2000
+    }
+}
+```
+위와 같은 코드를 실행시키면 a인스턴스의 책이름과 가격을 기대했지만, 
+```
+상품명 : [폭탄세일중]해로의 모험, 가격 : 99999
+```
+위와 같은 결과가 나오게 된다. 이러한 이유는 main에서 a인스턴스 프로퍼티와 이름이 같은 이름이 있기 때문이다.
+
+이러한 상황에서 also / let은 `it` 키워드를 지원합니다.
+
+```kotlin
+fun main(){
+    var price = 99999
+
+    var a = Book("해로의 모험",10000).apply{
+        name = "[폭탄세일중]" + name
+        discount()
+    }
+    a.let{
+        println("상품명 : ${it.name}, 가격 : ${it.price}")
+    }
+    
+}
+class Book(var name:String, var price:Int){
+    fun discount(){
+        price-=2000
+    }
+}
+```
+```
+상품명 : [폭탄세일중]해로의 모험, 가격 : 8000
+```
+`it`을 사용하니 main() 스코프의 price값이 출력되지 않고, a인스턴스 스코프의 price값이 출력됬다.

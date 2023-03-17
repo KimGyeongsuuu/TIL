@@ -98,4 +98,50 @@ public interface UserDetails extends Serializable {
     // 사용자를 인증하는데 사용된 암호를 반환한다.
     String getPassword();
 
+    // 사용자를 인증하는데 사용된 사용자 이름을 반환한다.
+    String getUsername();
+
+    // 사용자의 계정이 만료되었는지 여부를 나타낸다.
+    boolean isAccountNonExpired();
+
+    // 사용자가 잠겨 있는지 또는 잠금 해제되어 있는지 나타낸다.
+    boolean isAccountNonLocked();
+
+    // 사용자의 자격 증명(암호)이 만료되었는지 여부를 나타낸다.
+    boolean isCredentialsNonExpired();
+
+    // 사용자가 활성화되어있는지 여부를 나타낸다.
+    boolean isEnabled();
+}
 ```
+
+### GrantedAuthority
+GrantedAuthority는 현재 사용자가 가지고 있는 권한을 의미한다. ROLE의 형태로 사용한다.  GrantedAuthority는 UserDetailsService에 의해 불러올 수 있고, 특정 자원에 대한 권한이 있는지 검사하여 접근 허용 여부를 결정한다.
+
+### UserDetailsService
+UserDetailsService인터페이스는 UserDetails객체를 반환하는 loadUserByUsername메소드를 가지고 있다. 보통 userRepository를 주입받아 DB와 연결하여 처리한다.
+```java
+public interface UserDetailsService {
+
+    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+
+}
+```
+
+### PasswordEncoder
+AuthenticationManagerBuilder.userDetailsService().passowrdEncoder()를 통해 패스워드 암호화에 사용될 PasswordEncoder 구현체를 지정할 수 있다.
+
+```java
+@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+```
+
+## 서블릿 Filter 와 Spring Security
+![filter](https://miro.medium.com/max/941/1*JScorB4xO9feqZuaYTtBXg.png)
+ß
+클라이언트가 처음 요청을 하면 DelegatingFilterProxy가 가장 먼저 요청을 받고, FilterChainProxy에게 요청을 위임합니다.
+
+
+![FilterChain](https://blog.kakaocdn.net/dn/HYCaG/btrzragxjXN/U4usLguLDdZ9FycK0cU0kK/img.png)
